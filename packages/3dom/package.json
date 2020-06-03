@@ -1,5 +1,5 @@
 {
-  "name": "@google/3dom",
+  "name": "@sroske/3dom",
   "version": "0.0.1-alpha.4",
   "description": "An isolated scene graph facade for web-based 3D libraries",
   "repository": "https://github.com/google/model-viewer",
@@ -39,7 +39,7 @@
     "3d"
   ],
   "devDependencies": {
-    "@google/model-viewer-shared-assets": "*",
+    "@sroske/model-viewer-shared-assets": "*",
     "@open-wc/karma-esm": "^2.11.1",
     "@types/chai": "^4.2.7",
     "@types/mocha": "^5.2.5",

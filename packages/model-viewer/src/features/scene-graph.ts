@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import {ThreeDOMCapability} from '@google/3dom/lib/api.js';
-import {ThreeDOMExecutionContext} from '@google/3dom/lib/context.js';
-import {ModelGraft} from '@google/3dom/lib/facade/three-js/model-graft.js';
+import {ThreeDOMCapability} from '@sroske/3dom/lib/api.js';
+import {ThreeDOMExecutionContext} from '@sroske/3dom/lib/context.js';
+import {ModelGraft} from '@sroske/3dom/lib/facade/three-js/model-graft.js';
 import {property} from 'lit-element';
 
 import ModelViewerElementBase, {$needsRender, $onModelLoad, $scene} from '../model-viewer-base.js';

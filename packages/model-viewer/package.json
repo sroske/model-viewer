@@ -1,6 +1,6 @@
 {
-  "name": "@google/model-viewer",
-  "version": "0.10.0",
+  "name": "@sroske/model-viewer",
+  "version": "0.10.3",
   "description": "Easily display interactive 3D models on the web and in AR!",
   "repository": "https://github.com/GoogleWebComponents/model-viewer",
   "bugs": {
@@ -71,7 +71,7 @@
     "3d"
   ],
   "devDependencies": {
-    "@google/model-viewer-shared-assets": "^0.0.1",
+    "@sroske/model-viewer-shared-assets": "^0.0.1",
     "@jsantell/event-target": "^1.1.2",
     "@magicleap/prismatic": "^2.0.2",
     "@types/chai": "^4.2.7",
@@ -104,7 +104,7 @@
     "karma-sourcemap-loader": "^0.3.7"
   },
   "dependencies": {
-    "@google/3dom": "0.0.1-alpha.4",
+    "@sroske/3dom": "0.0.1-alpha.4",
     "lit-element": "^2.2.0",
     "three": "^0.117.1",
     "@types/resize-observer-browser": "^0.1.2"

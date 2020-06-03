@@ -1,6 +1,6 @@
 {
-  "name": "@google/model-viewer-shared-assets",
-  "private": true,
+  "name": "@sroske/model-viewer-shared-assets",
+  "private": false,
   "version": "0.0.1",
   "description": "3D models and related assets for <model-viewer> docs and tests",
   "scripts": {
