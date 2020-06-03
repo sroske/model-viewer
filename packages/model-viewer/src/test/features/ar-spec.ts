@@ -74,7 +74,7 @@ suite('ModelViewerElementBase with ARMixin', () => {
           }
         });
 
-        openIOSARQuickLook('https://example.com/model.gltf', 'fixed');
+        openIOSARQuickLook('https://example.com/model.gltf', 'fixed', '/');
 
         expect(intentUrls.length).to.be.equal(1);
 

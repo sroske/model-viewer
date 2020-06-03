@@ -29,12 +29,20 @@ export const openIOSARQuickLook = (() => {
   anchor.setAttribute('rel', 'ar');
   anchor.appendChild(document.createElement('img'));
 
-  return (usdzSrc: string, arScale: string) => {
+  return (usdzSrc: string, arScale: string, destUrl: string) => {
     const modelUrl = new URL(usdzSrc);
     if (arScale === 'fixed') {
       modelUrl.hash = 'allowsContentScaling=0';
     }
+    // console.log('openIOSARQuickLook activating: ', modelUrl.toString())
     anchor.setAttribute('href', modelUrl.toString());
+    anchor.addEventListener('message', function(event) {
+      let e: MessageEvent = event as MessageEvent
+      // console.log('got message: ', event, e, destUrl)
+      if (e.data === '_apple_ar_quicklook_button_tapped') {
+        window.location.href = destUrl;
+      }
+    }, false);
     anchor.click();
   };
 })();
@@ -128,6 +136,7 @@ export declare interface ARInterface {
   arModes: string;
   arScale: string;
   iosSrc: string|null;
+  iosDestUrl: string|null;
   quickLookBrowsers: string;
   readonly canActivateAR: boolean;
   activateAR(): Promise<void>;
@@ -146,6 +155,9 @@ export const ARMixin = <T extends Constructor<ModelViewerElementBase>>(
     @property(
         {converter: {fromAttribute: deserializeUrl}, attribute: 'ios-src'})
     iosSrc: string|null = null;
+
+    @property({type: String, attribute: 'ios-dest-url'})
+    iosDestUrl: string|null = null;
 
     @property({type: String, attribute: 'quick-look-browsers'})
     quickLookBrowsers: string = 'safari';
@@ -178,7 +190,7 @@ export const ARMixin = <T extends Constructor<ModelViewerElementBase>>(
     async activateAR() {
       switch (this[$arMode]) {
         case ARMode.QUICK_LOOK:
-          openIOSARQuickLook(this.iosSrc!, this.arScale);
+          openIOSARQuickLook(this.iosSrc!, this.arScale, this.iosDestUrl!);
           break;
         case ARMode.WEBXR:
           await this[$enterARWithWebXR]();
